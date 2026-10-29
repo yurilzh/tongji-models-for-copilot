@@ -1,0 +1,40 @@
+name: Publish Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '只打包校验，不发布'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to VS Code Marketplace
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # 供 GitHub OIDC trusted publishing 使用
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Syntax check
+        run: node --check extension.js
+
+      - name: Package (dry run)
+        if: ${{ inputs.dry_run }}
+        run: npx --yes @vscode/vsce@4.1.0 package
+
+      - name: Publish with trusted publishing
+        if: ${{ !inputs.dry_run }}
+        run: npx --yes @vscode/vsce@4.1.0 publish --oidc

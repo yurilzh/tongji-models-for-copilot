@@ -1,0 +1,80 @@
+{
+  "name": "tongji-copilot",
+  "displayName": "Tongji Models for Copilot Chat",
+  "description": "把同济大学人工智能服务平台（agi.tongji.edu.cn）的模型接入 Copilot Chat，新增 Tongji 模型组（BYOK / OpenAI 兼容）。",
+  "version": "0.1.0",
+  "publisher": "tongji-local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.116.0"
+  },
+  "keywords": [
+    "copilot",
+    "chat",
+    "tongji",
+    "同济",
+    "byok",
+    "openai-compatible",
+    "deepseek",
+    "glm",
+    "qwen"
+  ],
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "tongji",
+        "displayName": "Tongji"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tongji.setApiKey",
+        "title": "设置 API Key",
+        "category": "Tongji"
+      },
+      {
+        "command": "tongji.clearApiKey",
+        "title": "清除 API Key",
+        "category": "Tongji"
+      },
+      {
+        "command": "tongji.refreshModels",
+        "title": "刷新模型列表",
+        "category": "Tongji"
+      },
+      {
+        "command": "tongji.showLog",
+        "title": "显示日志",
+        "category": "Tongji"
+      }
+    ],
+    "configuration": {
+      "title": "Tongji",
+      "properties": {
+        "tongji.baseUrl": {
+          "type": "string",
+          "default": "https://agi.tongji.edu.cn/v1",
+          "markdownDescription": "同济大学人工智能服务平台的 OpenAI 兼容接口地址，只写到 `/v1`。"
+        },
+        "tongji.internalAddress": {
+          "type": "string",
+          "default": "10.67.0.251",
+          "markdownDescription": "服务端内网地址。平台 API 仅对校园网开放，当 `agi.tongji.edu.cn` 被解析到公网地址时会返回 403，此时把请求连到该内网地址（TLS 仍使用域名校验）。留空表示使用系统 DNS 解析结果。"
+        },
+        "tongji.maxOutputTokens": {
+          "type": "number",
+          "default": 32768,
+          "description": "单次请求的最大输出 token 数。"
+        }
+      }
+    }
+  }
+}
