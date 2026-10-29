@@ -35,34 +35,34 @@
 
 ## 设置
 
-| 设置项 | 默认值 | 说明 |
-| --- | --- | --- |
-| `tongji.baseUrl` | `https://agi.tongji.edu.cn/v1` | OpenAI 兼容接口地址，写到 `/v1` 为止 |
-| `tongji.internalAddress` | `10.67.0.251` | 服务端内网地址；留空表示使用系统 DNS |
-| `tongji.maxOutputTokens` | `32768` | 单次请求最大输出 token 数 |
+| 设置项                   | 默认值                         | 说明                                 |
+| ------------------------ | ------------------------------ | ------------------------------------ |
+| `tongji.baseUrl`         | `https://agi.tongji.edu.cn/v1` | OpenAI 兼容接口地址，写到 `/v1` 为止 |
+| `tongji.internalAddress` | `10.67.0.251`                  | 服务端内网地址；留空表示使用系统 DNS |
+| `tongji.maxOutputTokens` | `32768`                        | 单次请求最大输出 token 数            |
 
 ## 命令
 
-| 命令 | 说明 |
-| --- | --- |
+| 命令                   | 说明                          |
+| ---------------------- | ----------------------------- |
 | `Tongji: 设置 API Key` | 保存 API Key 到 SecretStorage |
-| `Tongji: 清除 API Key` | 删除已保存的 API Key |
-| `Tongji: 刷新模型列表` | 重新拉取 `GET /v1/models` |
-| `Tongji: 显示日志` | 打开输出面板中的 Tongji 日志 |
+| `Tongji: 清除 API Key` | 删除已保存的 API Key          |
+| `Tongji: 刷新模型列表` | 重新拉取 `GET /v1/models`     |
+| `Tongji: 显示日志`     | 打开输出面板中的 Tongji 日志  |
 
 ## 思考深度
 
 平台用请求体里的 `reasoning_effort` 统一控制思考开关与强度：`none` / `minimal` / `low` / `medium` / `high` / `xhigh` / `max`。各模型支持的等级不同，扩展按模型详情页的 `thinking_levels` 只给出该模型支持的选项：
 
-| 模型 | 可选等级 | 默认 |
-| --- | --- | --- |
-| DeepSeek-V4.1-Flash | none / low / high / xhigh / max | high |
-| MiniMax-M3.1-Flash | low / medium / high / xhigh / max | high |
-| GLM-5.3、GLM-5.3-Flash | low / high / max | high |
-| MiMo-V2.6-Pro、MiMo-V2.6-Flash | none / high | high |
-| Qwen3.8-Flash-Next、Qwen3.8-27B | none / low / medium / xhigh | medium |
-| Qwen3.8-Max | low / medium / xhigh | medium |
-| Kimi-K3 | low / high / max | high |
+| 模型                            | 可选等级                          | 默认   |
+| ------------------------------- | --------------------------------- | ------ |
+| DeepSeek-V4.1-Flash             | none / low / high / xhigh / max   | high   |
+| MiniMax-M3.1-Flash              | low / medium / high / xhigh / max | high   |
+| GLM-5.3、GLM-5.3-Flash          | low / high / max                  | high   |
+| MiMo-V2.6-Pro、MiMo-V2.6-Flash  | none / high                       | high   |
+| Qwen3.8-Flash-Next、Qwen3.8-27B | none / low / medium / xhigh       | medium |
+| Qwen3.8-Max                     | low / medium / xhigh              | medium |
+| Kimi-K3                         | low / high / max                  | high   |
 
 在模型选择器里点击模型名右侧的齿轮即可切换。
 
@@ -71,6 +71,7 @@
 - 本扩展由个人维护，与同济大学官方无隶属关系；接口可用性、额度与计费以平台为准。
 - 思考 token 同样计入套餐额度，等级越高消耗越多。
 - 扩展本身不包含任何 API Key，密钥只保存在本机。
+- 拓展使用deepseek v4.1 flash + vscode copilot 许愿式编程完成
 
 ## 打包
 
