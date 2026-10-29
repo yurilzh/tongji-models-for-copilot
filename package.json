@@ -3,8 +3,16 @@
   "displayName": "Tongji Models for Copilot Chat",
   "description": "把同济大学人工智能服务平台（agi.tongji.edu.cn）的模型接入 Copilot Chat，新增 Tongji 模型组（BYOK / OpenAI 兼容）。",
   "version": "0.1.0",
-  "publisher": "tongji-local",
+  "publisher": "yurilzh",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yurilzh/tongji-models-for-copilot.git"
+  },
+  "homepage": "https://github.com/yurilzh/tongji-models-for-copilot#readme",
+  "bugs": {
+    "url": "https://github.com/yurilzh/tongji-models-for-copilot/issues"
+  },
   "engines": {
     "vscode": "^1.116.0"
   },

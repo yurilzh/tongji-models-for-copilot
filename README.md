@@ -112,5 +112,4 @@ steps:
 
 也可以先在工作流页面手动运行一次并勾选 `dry_run`，只打包校验不发布。
 
-> `vsce` 会提示缺少 `repository` 字段，创建 GitHub 仓库后补上即可：
-> `npm pkg set repository.type=git repository.url=https://github.com/<owner>/vscode-tongji-api.git`
+仓库：<https://github.com/yurilzh/tongji-models-for-copilot>，发布的扩展 ID 为 `yurilzh.tongji-copilot`。
